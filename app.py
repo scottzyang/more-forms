@@ -87,7 +87,10 @@ animal_to_fact = {
     'parrot': 'Parrots will selflessly help each other out.',
     'mantis shrimp': 'The mantis shrimp has the world\'s fastest punch.',
     'lion': 'Female lions do 90 percent of the hunting.',
-    'narwhal': 'Narwhal tusks are really an "inside out" tooth.'
+    'narwhal': 'Narwhal tusks are really an "inside out" tooth.',
+    'fleas': 'Fleas can jump 350 times its body length.',
+    'hummingbird': 'Hummingbirds are the only birds that can fly backwards.',
+    'human': 'The human tongue contains about 8,000 taste buds!',
 }
 
 @app.route('/animal_facts')
