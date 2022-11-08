@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageOps
 from pprint import PrettyPrinter
 from dotenv import load_dotenv
 import json
@@ -204,10 +204,11 @@ Register and make an API key for yourself.
 Set up dotenv, create a .env file and define a variable 
 API_KEY with a value that is the api key for your account. """
 
-# 
+# searches mac for api key
 API_KEY = os.getenv('API_KEY')
 print(API_KEY)
 
+# sets API url
 TENOR_URL = 'https://tenor.googleapis.com/v2/search?'
 pp = PrettyPrinter(indent=4)
 
@@ -234,6 +235,7 @@ def gif_search():
                 # - 'limit': the number of GIFs requested
             })
 
+        # converts json results field into python readable dictionary
         gifs = json.loads(response.content).get('results')
 
         context = {
