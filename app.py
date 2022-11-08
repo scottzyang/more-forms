@@ -95,9 +95,15 @@ def animal_facts():
     """Show a form to choose an animal and receive facts."""
 
     # TODO: Collect the form data and save as variables
+    animal = request.args.get('animal')
+
+    if not animal:
+        animal = None
 
     context = {
         # TODO: Enter your context variables here for:
+        'animal_to_fact': animal_to_fact,
+        'selected_animal': animal,
         # - the list of all animals (get from animal_to_fact)
         # - the chosen animal fact (may be None if the user hasn't filled out the form yet)
     }
