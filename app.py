@@ -55,8 +55,24 @@ def compliments():
 @app.route('/compliments_results')
 def compliments_results():
     """Show the user some compliments."""
+    # accounts for selection bugs
+    '''
+        ensures that errors don't arise based on user selection
+    '''
+    num_compliments = request.args.get('num_compliments')
+    if num_compliments:
+        if int(num_compliments) > 0:
+            compliments = random.sample(list_of_compliments, int(num_compliments))
+    else: 
+        compliments = ['None Selected']
+
+
+
     context = {
         # TODO: Enter your context variables here.
+        'users_name': request.args.get('users_name'),
+        'wants_compliments': request.args.get('wants_compliments'), 
+        'compliments': compliments,
     }
 
     return render_template('compliments_results.html', **context)
